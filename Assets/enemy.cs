@@ -22,12 +22,20 @@ public class enemy : MonoBehaviour
     private void FixedUpdate()
     {
         if (hit.collider != false)
-        {
-            Debug.Log("hitting ground");
+        {  if (isFacingRight)
+            {
+                rb.velocity = new Vector2(speed, rb.velocity.y);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+            }
+            
          } 
           else
           {
-            Debug.Log("not hitting ground");
+            isFacingRight = !isFacingRight;
+            transform.localScale = new Vector3(-transform.localScale.x, 1f, 1f);
           }
     }
 }
