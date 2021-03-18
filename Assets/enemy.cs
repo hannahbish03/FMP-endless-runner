@@ -22,7 +22,8 @@ public class enemy : MonoBehaviour
     private void FixedUpdate()
     {
         if (hit.collider != false)
-        {  if (isFacingRight)
+        {
+            if (isFacingRight)
             {
                 rb.velocity = new Vector2(speed, rb.velocity.y);
             }
@@ -30,12 +31,12 @@ public class enemy : MonoBehaviour
             {
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
-            
-         } 
-          else
-          {
+
+        }
+        else
+        {
             isFacingRight = !isFacingRight;
             transform.localScale = new Vector3(-transform.localScale.x, 1f, 1f);
-          }
+        }
     }
 }
